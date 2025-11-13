@@ -1,110 +1,212 @@
-    <!doctype html>
-    <html lang="it">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Privacy | Dott.ssa Barbara Cincinnato</title>
-      <meta name="description" content="Informativa privacy sintetica." />
-      <meta property="og:title" content="Privacy | Dott.ssa Barbara Cincinnato">
-      <meta property="og:description" content="Informativa privacy sintetica.">
-      <meta property="og:locale" content="it_IT">
-      <meta name="theme-color" content="#0c1017">
-      <style>
-        :root {
-          --bg: #0c1017;
-          --bg-2:#121826;
-          --ink:#ecf0f3;
-          --muted:#b7c1cb;
-          --gold:#c7a146;
-          --bordeaux:#7b2c3b;
-          --blue:#14233b;
-          --radius: 16px;
-          --maxw: 1024px;
-        }
-        *{box-sizing:border-box}
-        body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;line-height:1.6}
-        a{color:var(--gold);text-decoration:none}
-        a:hover{text-decoration:underline}
-        header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,var(--bg-2),rgba(20,35,59,.5));border-bottom:1px solid rgba(199,161,70,.18)}
-        .wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
-        .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-        .brand{display:flex;align-items:center;gap:12px}
-        .logo{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold),#9d7a2f 60%,#5d4716);box-shadow:0 0 0 2px rgba(199,161,70,.2)}
-        .brand h1{font-size:18px;margin:0;letter-spacing:.2px}
-        nav.menu{display:flex;flex-wrap:wrap;gap:10px}
-        nav.menu a, .dropdown button{padding:8px 10px;border-radius:12px;color:var(--ink)}
-        nav.menu a.active{background:rgba(199,161,70,.14)}
-        .dropdown{position:relative}
-        .dropdown button{background:none;border:1px solid rgba(199,161,70,.28);cursor:pointer;display:flex;align-items:center;gap:8px}
-        .dropdown-list{position:absolute;top:42px;left:0;background:var(--bg-2);border:1px solid rgba(199,161,70,.25);border-radius:14px;padding:8px;min-width:240px;display:none;box-shadow:0 18px 36px rgba(0,0,0,.4)}
-        .dropdown-list a{display:block;padding:8px 10px;border-radius:10px}
-        .dropdown-list a:hover{background:rgba(199,161,70,.12)}
-        .dropdown.open .dropdown-list{display:block}
-        .hero{padding:56px 16px 10px;background:linear-gradient(180deg,rgba(199,161,70,.06),rgba(123,44,59,.06) 55%,transparent);border-bottom:1px solid rgba(199,161,70,.12)}
-        .hero h2{margin:0 0 6px;font-size:32px}
-        .hero p{margin:0;color:var(--muted)}
-        main.wrap{padding:22px 16px 64px}
-        .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-        .col-12{grid-column:span 12}
-        .col-6{grid-column:span 6}
-        .col-4{grid-column:span 4}
-        @media (max-width:900px){.col-6,.col-4{grid-column:span 12}}
-        .card{background:rgba(255,255,255,.03);border:1px solid rgba(199,161,70,.12);border-radius:var(--radius);padding:20px;backdrop-filter:blur(2px)}
-        h3{margin-top:8px}
-        .quote{border-left:3px solid var(--bordeaux);padding-left:12px;font-style:italic;background:linear-gradient(90deg,rgba(123,44,59,.15),transparent);border-radius:8px;padding:10px 12px}
-        .muted{color:var(--muted)}
-        .cta{display:inline-flex;gap:10px;align-items:center;margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--gold);color:#0c1017;font-weight:600;border:0}
-        footer{border-top:1px solid rgba(199,161,70,.12)}
-        .two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-        @media (max-width:900px){.two{grid-template-columns:1fr}}
-        input,textarea{font:inherit}
-      </style>
-      <script>
-        addEventListener('DOMContentLoaded',()=>{
-          const dd=document.querySelector('.dropdown');
-          if(dd){
-            dd.querySelector('button').addEventListener('click',()=>dd.classList.toggle('open'));
-            document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open')});
-          }
-        });
-      </script>
-    </head>
-    <body>
-      <header>
-        <div class="wrap nav">
-          <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Dott.ssa Barbara Cincinnato</h1></div>
-          <nav class="menu">
-            <a href="index.html" class="">Home</a>
-            <a href="chi-sono.html" class="">Chi sono</a>
-            <div class="dropdown">
-              <button type="button">Approfondimenti ▾</button>
-              <div class="dropdown-list">
-                <a href="psicoterapia-ipnotica.html">Psicoterapia Ipnotica</a>
-                <a href="emdr.html">EMDR</a>
-                <a href="aree-di-intervento.html">Aree di intervento</a>
-                <a href="blog.html">Blog / Risorse</a>
-              </div>
-            </div>
-            <a href="contatti.html" class="">Contatti</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="cookie.html">Cookie</a>
-          </nav>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy | Dott.ssa Barbara Cincinnato</title>
+  <meta name="description" content="Informativa sul trattamento dei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR)." />
+  <meta property="og:title" content="Privacy | Dott.ssa Barbara Cincinnato">
+  <meta property="og:description" content="Informativa sul trattamento dei dati personali ai sensi del Regolamento (UE) 2016/679 (GDPR).">
+  <meta property="og:locale" content="it_IT">
+  <meta name="theme-color" content="#0c1017">
+  <style>
+    :root {
+      --bg: #0c1017;
+      --bg-2:#121826;
+      --ink:#ecf0f3;
+      --muted:#b7c1cb;
+      --gold:#c7a146;
+      --bordeaux:#7b2c3b;
+      --blue:#14233b;
+      --radius: 16px;
+      --maxw: 1024px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;line-height:1.6}
+    a{color:var(--gold);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,var(--bg-2),rgba(20,35,59,.5));border-bottom:1px solid rgba(199,161,70,.18)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold),#9d7a2f 60%,#5d4716);box-shadow:0 0 0 2px rgba(199,161,70,.2)}
+    .brand h1{font-size:18px;margin:0;letter-spacing:.2px}
+    nav.menu{display:flex;flex-wrap:wrap;gap:10px}
+    nav.menu a, .dropdown button{padding:8px 10px;border-radius:12px;color:var(--ink)}
+    nav.menu a.active{background:rgba(199,161,70,.14)}
+    .dropdown{position:relative}
+    .dropdown button{background:none;border:1px solid rgba(199,161,70,.28);cursor:pointer;display:flex;align-items:center;gap:8px}
+    .dropdown-list{position:absolute;top:42px;left:0;background:var(--bg-2);border:1px solid rgba(199,161,70,.25);border-radius:14px;padding:8px;min-width:240px;display:none;box-shadow:0 18px 36px rgba(0,0,0,.4)}
+    .dropdown-list a{display:block;padding:8px 10px;border-radius:10px}
+    .dropdown-list a:hover{background:rgba(199,161,70,.12)}
+    .dropdown.open .dropdown-list{display:block}
+    .hero{padding:56px 16px 10px;background:linear-gradient(180deg,rgba(199,161,70,.06),rgba(123,44,59,.06) 55%,transparent);border-bottom:1px solid rgba(199,161,70,.12)}
+    .hero h2{margin:0 0 6px;font-size:32px}
+    .hero p{margin:0;color:var(--muted)}
+    main.wrap{padding:22px 16px 64px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .col-12{grid-column:span 12}
+    .col-6{grid-column:span 6}
+    .col-4{grid-column:span 4}
+    @media (max-width:900px){.col-6,.col-4{grid-column:span 12}}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(199,161,70,.12);border-radius:var(--radius);padding:20px;backdrop-filter:blur(2px)}
+    h3{margin-top:8px}
+    .quote{border-left:3px solid var(--bordeaux);padding-left:12px;font-style:italic;background:linear-gradient(90deg,rgba(123,44,59,.15),transparent);border-radius:8px;padding:10px 12px}
+    .muted{color:var(--muted)}
+    .cta{display:inline-flex;gap:10px;align-items:center;margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--gold);color:#0c1017;font-weight:600;border:0}
+    footer{border-top:1px solid rgba(199,161,70,.12)}
+    .two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    @media (max-width:900px){.two{grid-template-columns:1fr}}
+    input,textarea{font:inherit}
+  </style>
+  <script>
+    addEventListener('DOMContentLoaded',()=>{
+      const dd=document.querySelector('.dropdown');
+      if(dd){
+        dd.querySelector('button').addEventListener('click',()=>dd.classList.toggle('open'));
+        document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open')});
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Dott.ssa Barbara Cincinnato</h1></div>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="chi-sono.html">Chi sono</a>
+        <div class="dropdown">
+          <button type="button">Approfondimenti ▾</button>
+          <div class="dropdown-list">
+            <a href="psicoterapia-ipnotica.html">Psicoterapia Ipnotica</a>
+            <a href="emdr.html">EMDR</a>
+            <a href="aree-di-intervento.html">Aree di intervento</a>
+            <a href="blog.html">Blog / Risorse</a>
+          </div>
         </div>
-      </header>
-      <section class="hero"><div class="wrap"><h2>Privacy</h2><p>Informativa sintetica</p></div></section>
-<main class="wrap">
-  <div class="card">
-    <p>Questo sito tratta i dati inviati dal modulo contatti al solo fine di rispondere alle richieste.
-    Titolare del trattamento: Dott.ssa Barbara Cincinnato – Rimini. Base giuridica: consenso (art. 6 GDPR).
-    Conservazione: tempo necessario a evadere la richiesta. Diritti dell’interessato: accesso, rettifica, cancellazione,
-    limitazione, opposizione. Contatto per i diritti: info@barbaracincinnato.it.</p>
-  </div>
-</main>
+        <a href="contatti.html">Contatti</a>
+        <a href="privacy.html" class="active">Privacy</a>
+        <a href="cookie.html">Cookie</a>
+      </nav>
+    </div>
+  </header>
 
-      <footer>
-        <div class="wrap">
-          <p class="muted">© Dott.ssa Barbara Cincinnato · Psicologa Psicoterapeuta e Ipnotista Neo‑Ericksoniana – Rimini · EMDR</p>
-        </div>
-      </footer>
-    </body>
-    </html>
+  <section class="hero">
+    <div class="wrap">
+      <h2>Privacy</h2>
+      <p>Informativa sul trattamento dei dati personali (art. 13–14 GDPR)</p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <div class="card">
+      <h3>1. Titolare del trattamento</h3>
+      <p>
+        Titolare del trattamento è la <strong>Dott.ssa Barbara Cincinnato</strong>,
+        Psicologa Psicoterapeuta, con studio in <strong>[indirizzo completo]</strong>,
+        e-mail: <a href="mailto:info@barbaracincinnato.it">info@barbaracincinnato.it</a>,
+        PEC: <a href="mailto:[PEC]">[PEC]</a>, iscritta all’Ordine degli Psicologi
+        dell’Emilia-Romagna n. <strong>[numero albo]</strong>, P.IVA <strong>[P.IVA]</strong>.
+      </p>
+
+      <h3>2. Tipologia di dati trattati tramite il sito</h3>
+      <p>Attraverso il sito <strong>www.barbaracincinnato.it</strong> possono essere trattate le seguenti categorie di dati:</p>
+      <ul>
+        <li>
+          <strong>Dati di navigazione</strong> (es. indirizzi IP, data e orario della visita,
+          pagine visitate, parametri relativi al dispositivo utilizzato), raccolti in forma
+          automatizzata e in parte tramite cookie o strumenti simili, come descritto nella
+          <a href="cookie.html">Cookie Policy</a>.
+        </li>
+        <li>
+          <strong>Dati forniti volontariamente dall’utente</strong> tramite il modulo contatti
+          o tramite invio diretto di e-mail (nome, cognome, indirizzo e-mail, eventuali ulteriori
+          informazioni inserite nel messaggio).
+        </li>
+      </ul>
+      <p>
+        Il sito non è destinato alla raccolta di dati relativi alla salute o di altre
+        categorie particolari ai sensi dell’art. 9 GDPR. Eventuali informazioni di natura
+        clinica eventualmente inserite spontaneamente dall’utente nel messaggio saranno
+        trattate nel rispetto della normativa vigente e, se del caso, integrate nelle
+        specifiche informative consegnate in studio o in occasione dell’avvio di un
+        percorso psicologico.
+      </p>
+
+      <h3>3. Finalità e base giuridica del trattamento</h3>
+      <p>I dati personali raccolti tramite il sito sono trattati per le seguenti finalità:</p>
+      <ul>
+        <li>
+          <strong>Gestione delle richieste di contatto e di informazioni</strong><br>
+          Rispondere alle richieste inviate tramite il modulo contatti o per e-mail, fissare
+          eventuali appuntamenti, fornire chiarimenti sui servizi offerti.<br>
+          <em>Base giuridica:</em> esecuzione di misure precontrattuali e contrattuali
+          (art. 6, par. 1, lett. b) GDPR) e consenso dell’interessato per le informazioni
+          eventualmente di natura sensibile inserite volontariamente nel messaggio.
+        </li>
+        <li>
+          <strong>Funzionamento del sito e sicurezza</strong><br>
+          Permettere la corretta fruizione delle pagine, ottenere informazioni statistiche
+          anonime sull’uso del sito, controllarne il corretto funzionamento, prevenire
+          eventuali abusi o attività illecite.<br>
+          <em>Base giuridica:</em> legittimo interesse del Titolare alla gestione tecnica e
+          alla sicurezza del sito (art. 6, par. 1, lett. f) GDPR).
+        </li>
+        <li>
+          <strong>Adempimenti di legge</strong><br>
+          Assolvere ad obblighi previsti dalla normativa nazionale o europea (es. contabile,
+          fiscale, antiriciclaggio, obblighi deontologici).<br>
+          <em>Base giuridica:</em> adempimento di un obbligo legale (art. 6, par. 1, lett. c) GDPR).
+        </li>
+      </ul>
+
+      <h3>4. Modalità del trattamento</h3>
+      <p>
+        I dati sono trattati con strumenti elettronici e talvolta cartacei, secondo principi
+        di correttezza, liceità, trasparenza e tutela della riservatezza, in conformità al
+        GDPR e al Codice Deontologico degli Psicologi Italiani. Vengono adottate misure
+        tecniche e organizzative adeguate a garantire la sicurezza dei dati (ad es.
+        protezione da accessi non autorizzati, perdita, divulgazione o modifiche non consentite).
+      </p>
+
+      <h3>5. Conferimento dei dati</h3>
+      <p>
+        Il conferimento dei dati attraverso il modulo contatti è facoltativo; tuttavia, il
+        mancato conferimento dei dati contrassegnati come necessari può impedire di rispondere
+        alla richiesta o di fornire il servizio richiesto.
+      </p>
+
+      <h3>6. Destinatari dei dati</h3>
+      <p>
+        I dati personali possono essere trattati, nei limiti delle finalità indicate, da:
+      </p>
+      <ul>
+        <li>collaboratori e professionisti che supportano il Titolare (es. consulenti fiscali o legali), in qualità di responsabili del trattamento o autonomi titolari;</li>
+        <li>fornitori di servizi informatici (hosting, manutenzione del sito, servizi di posta elettronica), nominati, ove necessario, responsabili del trattamento ai sensi dell’art. 28 GDPR;</li>
+        <li>enti o autorità pubbliche, nei limiti degli obblighi di legge.</li>
+      </ul>
+      <p>
+        I dati non vengono diffusi né ceduti a terzi per finalità di marketing.
+      </p>
+
+      <h3>7. Trasferimento dei dati verso Paesi terzi</h3>
+      <p>
+        Alcuni servizi informatici utilizzati (ad es. servizi di hosting o di posta elettronica)
+        potrebbero comportare il trattamento di dati in Paesi situati al di fuori dello Spazio
+        Economico Europeo. In tali casi, il Titolare si impegna a verificare la sussistenza
+        di un livello adeguato di protezione, ad esempio tramite decisioni di adeguatezza
+        della Commissione europea o Clausole Contrattuali Standard, in conformità agli artt. 44 e ss. GDPR.
+      </p>
+
+      <h3>8. Periodo di conservazione dei dati</h3>
+      <p>
+        I dati raccolti tramite il modulo contatti vengono conservati per il tempo necessario
+        a gestire correttamente la richiesta e per un periodo successivo eventualmente
+        necessario a documentare l’attività svolta o a tutelare i diritti del Titolare (es.
+        termini di prescrizione legale).
+      </p>
+      <p>
+        I dati trattati per obblighi di legge sono conservati per i periodi previsti dalla
+        normativa applicabile. I dati di navigazione sono normalmente conservati per un
+        periodo limitato, compatibile

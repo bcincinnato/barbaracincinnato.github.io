@@ -3,164 +3,305 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cookie Policy | Dott.ssa Barbara Cincinnato</title>
-  <meta name="description" content="Informativa sull'utilizzo dei cookie del sito www.barbaracincinnato.it." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Cookie | Dott.ssa Barbara Cincinnato</title>
+  <meta name="description" content="Informativa sui cookie e sugli strumenti di tracciamento utilizzati dal sito barbaracincinnato.it." />
+  <meta property="og:title" content="Cookie | Dott.ssa Barbara Cincinnato">
+  <meta property="og:description" content="Informativa sui cookie e sugli strumenti di tracciamento utilizzati dal sito barbaracincinnato.it.">
+  <meta property="og:locale" content="it_IT">
+  <meta name="theme-color" content="#0c1017">
+  <style>
+    :root {
+      --bg: #0c1017;
+      --bg-2:#121826;
+      --ink:#ecf0f3;
+      --muted:#b7c1cb;
+      --gold:#c7a146;
+      --bordeaux:#7b2c3b;
+      --blue:#14233b;
+      --radius: 16px;
+      --maxw: 1024px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;line-height:1.6}
+    a{color:var(--gold);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg,var(--bg-2),rgba(20,35,59,.5));border-bottom:1px solid rgba(199,161,70,.18)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:16px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold),#9d7a2f 60%,#5d4716);box-shadow:0 0 0 2px rgba(199,161,70,.2)}
+    .brand h1{font-size:18px;margin:0;letter-spacing:.2px}
+    nav.menu{display:flex;flex-wrap:wrap;gap:10px}
+    nav.menu a, .dropdown button{padding:8px 10px;border-radius:12px;color:var(--ink)}
+    nav.menu a.active{background:rgba(199,161,70,.14)}
+    .dropdown{position:relative}
+    .dropdown button{background:none;border:1px solid rgba(199,161,70,.28);cursor:pointer;display:flex;align-items:center;gap:8px}
+    .dropdown-list{position:absolute;top:42px;left:0;background:var(--bg-2);border:1px solid rgba(199,161,70,.25);border-radius:14px;padding:8px;min-width:240px;display:none;box-shadow:0 18px 36px rgba(0,0,0,.4)}
+    .dropdown-list a{display:block;padding:8px 10px;border-radius:10px}
+    .dropdown-list a:hover{background:rgba(199,161,70,.12)}
+    .dropdown.open .dropdown-list{display:block}
+    .hero{padding:56px 16px 10px;background:linear-gradient(180deg,rgba(199,161,70,.06),rgba(123,44,59,.06) 55%,transparent);border-bottom:1px solid rgba(199,161,70,.12)}
+    .hero h2{margin:0 0 6px;font-size:32px}
+    .hero p{margin:0;color:var(--muted)}
+    main.wrap{padding:22px 16px 64px}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(199,161,70,.12);border-radius:var(--radius);padding:20px;backdrop-filter:blur(2px)}
+    h3{margin-top:8px}
+    .muted{color:var(--muted)}
+    footer{border-top:1px solid rgba(199,161,70,.12)}
+    .two{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+    @media (max-width:900px){.two{grid-template-columns:1fr}}
+    input,textarea{font:inherit}
+    /* Banner cookie (uguale ovunque) */
+    .cookie-banner{
+      position:fixed;
+      left:0;right:0;bottom:0;
+      background:rgba(12,16,23,0.98);
+      border-top:1px solid rgba(199,161,70,.25);
+      z-index:80;
+      font-size:14px;
+    }
+    .cookie-banner.hidden{display:none}
+    .cookie-banner .inner{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:12px 16px 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .cookie-text{flex:1 1 220px;color:var(--muted)}
+    .cookie-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .cookie-btn{
+      border-radius:12px;
+      border:1px solid rgba(199,161,70,.4);
+      background:transparent;
+      color:var(--ink);
+      padding:6px 12px;
+      cursor:pointer;
+      font:inherit;
+    }
+    .cookie-btn.primary{
+      background:var(--gold);
+      color:#0c1017;
+      border-color:var(--gold);
+      font-weight:600;
+    }
+    .cookie-link{font-size:13px}
+  </style>
+  <script>
+    addEventListener('DOMContentLoaded',()=>{
+      const dd=document.querySelector('.dropdown');
+      if(dd){
+        dd.querySelector('button').addEventListener('click',()=>dd.classList.toggle('open'));
+        document.addEventListener('click',e=>{if(!dd.contains(e.target))dd.classList.remove('open')});
+      }
+
+      // Banner cookie
+      const banner=document.getElementById('cookie-banner');
+      if(!banner) return;
+      const getConsent=()=>{
+        return document.cookie.split('; ').find(r=>r.startsWith('bc_cookie_consent='))?.split('=')[1];
+      };
+      const setConsent=(value)=>{
+        document.cookie='bc_cookie_consent='+value+'; max-age='+(60*60*24*365)+'; path=/';
+      };
+      if(getConsent()){
+        banner.classList.add('hidden');
+      }
+      banner.addEventListener('click',e=>{
+        if(e.target.matches('[data-cookie-choice]')){
+          const choice=e.target.getAttribute('data-cookie-choice');
+          if(choice==='accept'){setConsent('all');}
+          if(choice==='reject'){setConsent('necessary');}
+          banner.classList.add('hidden');
+        }
+      });
+    });
+  </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Dott.ssa Barbara Cincinnato</h1>
-      <p class="site-subtitle">Psicologa Psicoterapeuta</p>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <!-- Aggiungi qui le altre voci del menu -->
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="cookie-policy.html" aria-current="page">Cookie</a></li>
-        </ul>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div><h1>Dott.ssa Barbara Cincinnato</h1></div>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="chi-sono.html">Chi sono</a>
+        <div class="dropdown">
+          <button type="button">Approfondimenti ▾</button>
+          <div class="dropdown-list">
+            <a href="psicoterapia-ipnotica.html">Psicoterapia Ipnotica</a>
+            <a href="emdr.html">EMDR</a>
+            <a href="aree-di-intervento.html">Aree di intervento</a>
+            <a href="blog.html">Blog / Risorse</a>
+          </div>
+        </div>
+        <a href="contatti.html">Contatti</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookie.html" class="active">Cookie</a>
       </nav>
     </div>
   </header>
 
-  <main class="page container">
-    <h2>Cookie Policy del sito www.barbaracincinnato.it</h2>
+  <section class="hero">
+    <div class="wrap">
+      <h2>Cookie e strumenti di tracciamento</h2>
+      <p>Informativa sui cookie utilizzati dal sito barbaracincinnato.it</p>
+    </div>
+  </section>
 
-    <p>
-      La presente informativa sull'uso dei cookie è resa ai sensi dell'art. 13 del
-      Regolamento (UE) 2016/679 (“GDPR”) e della normativa nazionale in materia di
-      protezione dei dati personali, nonché dei provvedimenti del Garante per la
-      protezione dei dati personali in materia di cookie e altri strumenti di tracciamento.
-    </p>
+  <main class="wrap">
+    <div class="card">
+      <h3>1. Titolare del trattamento</h3>
+      <p>
+        Titolare del trattamento è la <strong>Dott.ssa Barbara Cincinnato</strong>,
+        Psicologa Psicoterapeuta, con studio in <strong>Rimini</strong>,
+        e-mail: <a href="mailto:b.cincinnato@gmail.com">b.cincinnato@gmail.com</a>,
+        PEC: <a href="mailto:[PEC]">barbara.cincinnato.239@psypec.it</a>, iscritta all’Ordine degli Psicologi
+        dell’Emilia-Romagna n. <strong>7364A</strong>, P.IVA <strong>04121880407</strong>.
+      </p>
 
-    <h3>1. Titolare del trattamento</h3>
-    <p>
-      Titolare del trattamento è la <strong>Dott.ssa Barbara Cincinnato</strong>,
-      Psicologa Psicoterapeuta, con studio in Rimini, e-mail: b.cincinnato@gmail.com
-      <a href="mailto:[email]">[email]</a>, PEC: barbara.cincinnato.239@psypec.it
-      <a href="mailto:[PEC]">[PEC]</a>, iscritta all’Ordine degli Psicologi
-      dell’Emilia-Romagna n.7364 A, P.IVA 04121880407.
-    </p>
+      <h3>2. Cosa sono i cookie</h3>
+      <p>
+        I cookie sono piccoli file di testo che i siti visitati dall’utente inviano al suo
+        dispositivo (computer, tablet, smartphone), dove vengono memorizzati per essere poi
+        ritrasmessi agli stessi siti alla visita successiva. I cookie consentono al sito di
+        funzionare in modo corretto ed efficiente e possono essere utilizzati per raccogliere
+        informazioni in forma aggregata o per personalizzare l’esperienza di navigazione.
+      </p>
 
-    <h3>2. Cosa sono i cookie</h3>
-    <p>
-      I cookie sono piccoli file di testo che i siti visitati dall'utente inviano al suo
-      terminale (computer, tablet, smartphone), dove vengono memorizzati per essere poi
-      ritrasmessi agli stessi siti alla visita successiva. I cookie consentono al sito di
-      funzionare in modo corretto ed efficiente e forniscono informazioni al Titolare per
-      finalità statistiche o di personalizzazione dell’esperienza di navigazione.
-    </p>
+      <h3>3. Tipologie di cookie</h3>
+      <p>In base alle caratteristiche e all’utilizzo, i cookie possono essere distinti in:</p>
+      <ul>
+        <li>
+          <strong>Cookie tecnici</strong><br>
+          Necessari al corretto funzionamento del sito e alla fruizione dei servizi
+          richiesti dall’utente (ad es. gestione della sessione, compilazione di moduli).
+          Non richiedono il consenso dell’utente.
+        </li>
+        <li>
+          <strong>Cookie di analisi (analytics)</strong><br>
+          Utilizzati per raccogliere informazioni, anche in forma aggregata, sul numero di
+          utenti e su come questi visitano il sito. Se adeguatamente anonimizzati e utilizzati
+          solo in forma aggregata, vengono assimilati ai cookie tecnici; diversamente
+          richiedono il consenso.
+        </li>
+        <li>
+          <strong>Cookie di profilazione</strong><br>
+          Utilizzati per creare profili relativi all’utente e inviare messaggi pubblicitari
+          in linea con le preferenze manifestate durante la navigazione. Richiedono sempre il
+          consenso esplicito dell’utente.
+        </li>
+        <li>
+          <strong>Cookie di terze parti</strong><br>
+          Installati da un sito diverso rispetto a quello visitato dall’utente (ad es. contenuti
+          incorporati, pulsanti social, servizi di analisi forniti da soggetti terzi).
+        </li>
+      </ul>
 
-    <h3>3. Tipologie di cookie</h3>
-    <p>In base alle caratteristiche e all’utilizzo, i cookie possono essere distinti in:</p>
-    <ul>
-      <li>
-        <strong>Cookie tecnici</strong>: necessari al corretto funzionamento del sito e a
-        fornire il servizio richiesto dall’utente. Non richiedono il consenso dell’utente.
-      </li>
-      <li>
-        <strong>Cookie di analisi (analytics)</strong>: utilizzati per raccogliere
-        informazioni in forma aggregata sul numero di utenti e su come questi visitano il
-        sito. Se anonimizzati e utilizzati solo in forma aggregata, possono essere
-        assimilati ai cookie tecnici; diversamente richiedono il consenso.
-      </li>
-      <li>
-        <strong>Cookie di profilazione</strong>: volti a creare profili relativi all’utente
-        e utilizzati per inviare messaggi pubblicitari in linea con le preferenze
-        manifestate nel corso della navigazione. Richiedono sempre il consenso.
-      </li>
-      <li>
-        <strong>Cookie di terze parti</strong>: cookie installati da un sito diverso da
-        quello che l’utente sta visitando (ad es. contenuti incorporati, pulsanti social,
-        servizi di terzi).
-      </li>
-    </ul>
+      <h3>4. Cookie utilizzati da questo sito</h3>
+      <p>
+        Il sito <strong>www.barbaracincinnato.it</strong> utilizza principalmente cookie
+        tecnici, necessari a garantire il corretto funzionamento delle pagine e dei servizi
+        offerti (ad esempio, la gestione del modulo contatti e le preferenze di navigazione di base).
+      </p>
+      <p>
+        Il sito è ospitato su infrastrutture messe a disposizione da
+        <strong>Aruba S.p.A.</strong> e dalla piattaforma <strong>GitHub Pages</strong> di
+        <strong>GitHub, Inc.</strong>; tali fornitori possono generare log tecnici e utilizzare
+        propri cookie tecnici per garantire sicurezza, bilanciamento del carico e corretto
+        funzionamento dell’infrastruttura, secondo quanto descritto nelle rispettive informative
+        privacy e cookie policy.
+      </p>
+      <p>
+        Il modulo contatti può essere gestito tramite il servizio Formspree, che potrebbe
+        utilizzare propri cookie o strumenti di tracciamento tecnici per garantire il corretto
+        invio del messaggio. Per maggiori dettagli si rimanda all’informativa del fornitore.
+      </p>
+      <p>
+        Eventuali cookie di analisi o di terze parti (ad es. strumenti di statistica del
+        traffico, contenuti incorporati o pulsanti di condivisione social) vengono attivati
+        solo previo consenso dell’utente tramite l’apposito banner mostrato al primo accesso,
+        in conformità alla normativa vigente e ai provvedimenti dell’Autorità Garante.
+      </p>
+      <p>
+        L’elenco aggiornato dei cookie di prima e di terza parte effettivamente utilizzati
+        dal sito può essere richiesto al Titolare ai recapiti indicati al punto 1.
+      </p>
 
-    <h3>4. Cookie utilizzati da questo sito</h3>
-    <p>
-      Il sito <strong>www.barbaracincinnato.it</strong> utilizza prevalentemente
-      cookie tecnici, necessari a garantire il corretto funzionamento delle pagine e dei
-      servizi offerti (ad es. gestione del modulo contatti, preferenze di navigazione di
-      base).
-    </p>
-    <p>
-      Eventuali cookie di analisi o di terze parti (ad es. servizi di statistica del
-      traffico web, contenuti incorporati da piattaforme esterne, pulsanti di condivisione
-      social) saranno attivati solo previo consenso dell’utente tramite l’apposito banner,
-      nel rispetto delle indicazioni del Garante per la protezione dei dati personali.
-    </p>
-    <p>
-      L’elenco aggiornato dei cookie di prima e di terza parte effettivamente utilizzati
-      dal sito può essere richiesto al Titolare ai recapiti indicati al punto 1.
-    </p>
+      <h3>5. Gestione delle preferenze sui cookie</h3>
+      <p>
+        Al primo accesso al sito viene mostrato un banner che consente all’utente di:
+      </p>
+      <ul>
+        <li>accettare tutti i cookie;</li>
+        <li>rifiutare i cookie non necessari;</li>
+        <li>accedere a questa pagina per maggiori informazioni.</li>
+      </ul>
+      <p>
+        L’utente può in qualunque momento modificare le scelte espresse in precedenza
+        cancellando i cookie dal proprio browser e, se necessario, verrà nuovamente
+        riproposto il banner.
+      </p>
+      <p>
+        È inoltre possibile configurare il proprio browser per cancellare o bloccare i cookie.
+        Le modalità di gestione dei cookie tramite browser sono disponibili, ad esempio, nelle
+        sezioni di aiuto di Chrome, Firefox, Edge e Safari.
+      </p>
 
-    <h3>5. Gestione delle preferenze sui cookie</h3>
-    <p>
-      Al primo accesso al sito viene mostrato un banner che consente all’utente di
-      accettare tutti i cookie, rifiutare i cookie non necessari oppure selezionare in modo
-      granulare le proprie preferenze.
-    </p>
-    <p>
-      L’utente può in ogni momento modificare le scelte espresse in precedenza richiamando
-      le impostazioni dei cookie tramite l’apposito link o pulsante presente nel footer del
-      sito (ad es. “Rivedi le tue preferenze sui cookie”).
-    </p>
-    <p>
-      Inoltre, tramite le impostazioni del proprio browser, l’utente può cancellare i
-      cookie già presenti e impedire l’installazione di nuovi cookie. Per maggiori
-      informazioni, si rinvia alle istruzioni del proprio browser.
-    </p>
+      <h3>6. Base giuridica del trattamento</h3>
+      <p>
+        Per i cookie tecnici, la base giuridica del trattamento è l’art. 6, par. 1, lett. b)
+        GDPR (esecuzione di misure precontrattuali e contrattuali) e l’interesse legittimo
+        del Titolare a garantire il corretto funzionamento del sito.
+      </p>
+      <p>
+        Per i cookie di analisi non anonimizzati, per i cookie di profilazione e per i cookie
+        di terze parti utilizzati per finalità non tecniche, la base giuridica è il
+        <strong>consenso</strong> dell’utente (art. 6, par. 1, lett. a) GDPR), espresso
+        tramite il banner e revocabile in qualsiasi momento.
+      </p>
 
-    <h3>6. Base giuridica del trattamento</h3>
-    <p>
-      Per i cookie tecnici, la base giuridica del trattamento è l’art. 6, par. 1, lett. b)
-      GDPR (esecuzione di misure precontrattuali e contrattuali) e l’interesse legittimo
-      del Titolare a garantire il corretto funzionamento del sito.
-    </p>
-    <p>
-      Per i cookie di analisi non anonimizzati e i cookie di profilazione, la base
-      giuridica è il consenso dell’utente (art. 6, par. 1, lett. a) GDPR), espresso tramite
-      il banner e revocabile in qualsiasi momento.
-    </p>
+      <h3>7. Trasferimento dei dati verso Paesi terzi</h3>
+      <p>
+        L’utilizzo di GitHub Pages e di servizi come Formspree può comportare il trattamento di
+        dati in Paesi situati al di fuori dello Spazio Economico Europeo (in particolare Stati
+        Uniti). In tali casi, il Titolare si impegna a verificare la presenza di adeguate
+        garanzie ai sensi del Capo V del GDPR (decisioni di adeguatezza, Clausole Contrattuali
+        Standard o altre misure idonee).
+      </p>
 
-    <h3>7. Trasferimento dei dati verso Paesi terzi</h3>
-    <p>
-      L’eventuale utilizzo di servizi di terze parti potrebbe comportare un trasferimento di
-      dati verso Paesi non appartenenti allo Spazio Economico Europeo. In tal caso, il
-      Titolare si impegna a verificare la presenza di garanzie adeguate ai sensi del Capo V
-      del GDPR.
-    </p>
+      <h3>8. Diritti degli interessati</h3>
+      <p>
+        Per informazioni dettagliate sui diritti dell’interessato (accesso, rettifica,
+        cancellazione, limitazione, opposizione, portabilità, reclamo all’Autorità Garante),
+        si rimanda alla <a href="privacy.html">Informativa Privacy</a>.
+      </p>
 
-    <h3>8. Diritti degli interessati</h3>
-    <p>
-      Gli utenti possono esercitare, nei confronti del Titolare, i diritti previsti dagli
-      artt. 15-22 del GDPR (accesso, rettifica, cancellazione, limitazione, portabilità,
-      opposizione, reclamo all’Autorità Garante) scrivendo a
-      <a href="mailto:[email]">[email]</a> o alla PEC
-      <a href="mailto:[PEC]">[PEC]</a>.
-    </p>
-
-    <h3>9. Aggiornamenti</h3>
-    <p>
-      La presente Cookie Policy può essere aggiornata a seguito di modifiche normative o
-      tecniche. La versione aggiornata è pubblicata su questa pagina con indicazione della
-      data di ultimo aggiornamento.
-    </p>
-
-    <p><em>Ultimo aggiornamento: [inserire data]</em></p>
+      <p class="muted"><em>Ultimo aggiornamento: [inserire data].</em></p>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Dott.ssa Barbara Cincinnato – Tutti i diritti riservati.</p>
-      <p>
-        <a href="privacy-policy.html">Privacy Policy</a> |
-        <a href="cookie-policy.html">Cookie Policy</a>
-      </p>
+  <footer>
+    <div class="wrap">
+      <p class="muted">© Dott.ssa Barbara Cincinnato · Psicologa Psicoterapeuta e Ipnotista Neo-Ericksoniana – Rimini · EMDR</p>
     </div>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
   </footer>
+
+  <!-- Banner cookie (uguale su tutte le pagine) -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Informativa sui cookie">
+    <div class="inner">
+      <div class="cookie-text">
+        Questo sito utilizza cookie tecnici e, previo consenso, potrà utilizzare cookie di terze parti per fini statistici.
+        Proseguendo la navigazione o cliccando su “Accetta tutti” acconsenti all’uso dei cookie non necessari.
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn" data-cookie-choice="reject">Rifiuta non necessari</button>
+        <button class="cookie-btn primary" data-cookie-choice="accept">Accetta tutti</button>
+        <a href="cookie.html" class="cookie-link">Maggiori informazioni</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
